@@ -28,7 +28,6 @@ import com.artificer.matrixlog.domain.service.ClientRegistrationService;
 
 @RestController
 @RequestMapping("/clients")
-@CrossOrigin("http://localhost:4200")
 public class ClientController {
 
 	@Autowired

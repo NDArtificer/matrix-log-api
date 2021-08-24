@@ -2,8 +2,11 @@ package com.artificer.matrixlog.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,7 +53,7 @@ public class DeliveryController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public DeliveryModelOutput request(@RequestBody DeliveryInputModel deliveryInput) {
+	public DeliveryModelOutput request(@RequestBody @Valid DeliveryInputModel deliveryInput) {
 		Delivery newDelivery = deliveryConverter.toEntity(deliveryInput);
 		return deliveryConverter.toModel(deliveryRegistrationService.request(newDelivery));
 	}
